@@ -1,76 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Converter</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="blue-bg"></div>
-      <div class="white-bg"></div>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="custom-override.css">
+</head>
+<body>
+    <div class="wrapper position-relative d-flex flex-column justify-content-center align-items-center min-vh-100">
+        <div class="blue-bg"></div>
+        <div class="white-bg"></div>
 
-      <div class="converter-wrapper">
-        <h2>Currency Converter</h2>
+        <div class="converter-wrapper mx-auto bg-white rounded-3 position-absolute top-50 start-50 translate-middle shadow p-4">
+            <h2 class="position-absolute text-center w-100 converter-title">
+                Currency Converter
+            </h2>
 
-        <div class="converter-inputs">
-          <div class="from-amount">
-            <label for="from-amount-input">Amount</label>
-            <input
-              id="from-amount-input"
-              type="number"
-              class="form-control"
-              placeholder="$"
-              min="0"
-              value="1"
-            />
-          </div>
-          <div class="from-currency">
-            <label for="from-currency-select">From</label>
-            <select id="from-currency-select"></select>
-          </div>
-          <div class="icon">
-            <button type="button" id="swap-btn">
-              <img src="exchange.png" alt="Swap" />
-            </button>
-          </div>
-          <div class="to-currency">
-            <label for="to-currency-select">To</label>
-            <select id="to-currency-select"></select>
-          </div>
+            <div class="converter-inputs row g-3 align-items-center mb-4">
+                <div class="from-amount col-md-3 col-12">
+                    <label for="from-amount-input" class="form-label">Amount</label>
+                    <input id="from-amount-input" type="number" class="form-control" placeholder="$" min="0" value="1">
+                </div>
+                <div class="from-currency col-md-3 col-12">
+                    <label for="from-currency-select" class="form-label">From</label>
+                    <select id="from-currency-select" class="form-select"></select> 
+                </div>
+                <div class="icon col-md-2 col-12 d-flex justify-content-center align-items-center">
+                    <button type="button" id="swap-btn" class="btn p-0">
+                        <img src="exchange.png" alt="Swap" style="width: 40px;">
+                    </button>
+                </div>
+                <div class="to-currency col-md-3 col-12">
+                    <label for="to-currency-select" class="form-label">To</label>
+                    <select id="to-currency-select" class="form-select"></select>
+                </div>
+            </div>
+
+
+            <div class="result-wrapper mb-3">
+                <p>
+                    <span id="from-result"></span>
+                    =
+                    <span id="to-result"></span>
+                </p>
+            </div>
+
+
+            <div class="chart-container mb-4">
+                <canvas id="exchangeChart" width="600" height="300"></canvas>
+            </div>
+            <div class="d-flex gap-2 justify-content-between">
+                <button type="button" id="convert-btn">Convert</button>
+                <button type="button" id="mode-btn">Dark/Light Mode</button>
+            </div>
         </div>
 
-        <div class="result-wrapper">
-          <p>
-            <span id="from-result"></span>
-            =
-            <span id="to-result"></span>
-          </p>
-
-          <div class="chart-container mb-4">
-            <canvas id="exchangeChart" width="600" height="300"></canvas>
-          </div>
-        </div>
-        <button type="button" id="convert-btn">convert</button>
-        <button id="mode-btn">Dark/Light Mode</button>
-      </div>
-
-      <footer class="text-center mt-4 text-muted">
-        <p>
-          © 2023 Currency Converter. All rates are for informational purposes
-          only.
-        </p>
-      </footer>
+        <footer class="text-center mt-4 text-muted position-relative w-100">
+            <p class="m-0">© 2023 Currency Converter. All rates are for informational purposes only.</p>
+        </footer>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
